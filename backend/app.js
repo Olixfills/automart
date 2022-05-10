@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import router from "./routes/user-routes";
+import postRouter from "./routes/post-routes";
 
 
 const PORT = 5000 || 5001;
@@ -10,6 +11,7 @@ const app = express()
 app.use(express.json())
 
 app.use('/posts/user',router)
+app.use('/posts',postRouter)
 
 
 
