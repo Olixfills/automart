@@ -8,7 +8,8 @@ const postSchema = new Schema({
         required : true
     },
     creator: {
-        type : String,
+        type: mongoose.Types.ObjectId,
+        ref: "User",
         required : true
     },
     year: {
@@ -23,7 +24,7 @@ const postSchema = new Schema({
         type : String,
         required : true
     },
-    Image: {
+    image: {
         type : String,
         required : true
     },

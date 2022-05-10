@@ -26,6 +26,7 @@ export const signupUser = async (req, res, next) => {
         name,
         email,
         password: hashPass,
+        blogs: []
     })
     try {
         await user.save()
