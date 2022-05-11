@@ -2,11 +2,14 @@ import express from "express";
 import mongoose from "mongoose";
 import router from "./routes/user-routes";
 import postRouter from "./routes/post-routes";
+import cors from 'cors';
 
 
 const PORT = 5000 || 5001;
 
 const app = express()
+
+app.use(cors())
 
 app.use(express.json())
 
