@@ -4,40 +4,43 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import moment from 'moment'
 import { Box, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 
-export default function Post({post}) {
-
+export default function Post({post, isUser, id}) {
+  const navigate = useNavigate()
    const {image, title, creator, createdAt, year, condition, price, } = post
 
 
+  const handleMore = (e) => {
+    navigate(`/post/${id}`)
+  }
+  const handleDelete = (e) => {
+    
+  }
+  
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 400 }} >
       <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            {creator.name.charAt(0)}
-          </Avatar>
-        }
+        
         action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
+          (<IconButton aria-label="settings" sx={{ fontSize: "0.8rem" }} onClick={handleMore}>
+            <MoreVertIcon /> More
+          </IconButton>)
         }
         title={creator.name}
         subheader={`Posted ${moment(createdAt).fromNow()}`}
       />
       <CardMedia
         component="img"
-        height="250"
+        height="200" 
         image={image}
         alt={title}
       />
@@ -50,10 +53,10 @@ export default function Post({post}) {
       </CardContent>
       <CardActions >
         <Typography variant='h6' style={{color: '#1c2435'}}>₦{parseInt(price).toLocaleString()}.00</Typography>
-        <Button size='small' style={{color: '#f34f28', marginLeft: 'auto'}} >
+        {isUser && (<Button size='small' style={{color: '#f34f28', marginLeft: 'auto'}} onClick={handleDelete} >
           <DeleteForeverIcon />
           DELETE
-        </Button>
+        </Button>)}
       </CardActions>
         
         
