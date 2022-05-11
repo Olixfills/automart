@@ -6,14 +6,14 @@ import AllPosts from './components/AllPosts';
 import UserPosts from './components/UserPosts';
 import Post from './components/Post';
 import AddPost from './components/AddPost';
-import { useSelector } from 'react-redux';
+import Container from '@mui/material/Container';
+import PostDetail from './components/PostDetail';
 
 
 
 
 
 function App() {
-  const isLoggedIn = useSelector(state => state.isLoggedIn);
 
 
 
@@ -24,17 +24,18 @@ function App() {
       <header>
         <Header />
       </header>
-      <main>
+      <Container sx={{ marginTop: 2}}>
         <Routes>
           <Route path='/' element={<Auth />} />
           <Route path='/auth' element={<Auth />} />
           <Route path='/posts' element={<AllPosts />} />
+          <Route path='/post/:id' element={<PostDetail/>} />
           <Route path='/posts/add' element={<AddPost />} />
           <Route path='/myPosts' element={<UserPosts />} />
           <Route path='/myPosts/:id' element={<Post />} />
         </Routes>
 
-      </main>
+      </Container>
       
 
     </div>
