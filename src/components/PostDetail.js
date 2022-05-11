@@ -11,12 +11,16 @@ import { Box, Button } from '@mui/material';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router-dom';
+
 
 
 
 const PostDetail = () => {
     const [post, setPost] = useState('');
-    const id = useParams().id
+  const id = useParams().id
+  const navigate = useNavigate()
+
     const url = `http://localhost:5000/posts/${id}`
     const fetchPost = async () => {
       const res = await axios.get(url).catch(err => console.log(err.message))
@@ -33,11 +37,23 @@ const PostDetail = () => {
     
     const isUser = localStorage.getItem("userId") === post.creator;
   
-  const handleDelete = () => {
-    
+
+
+  const deletePost = async () => {
+    const url = `http://localhost:5000/posts/${id}`;
+
+    const res = await axios.delete(url)
+      .catch(err => console.log(err.message));
+    const data = res.data;
+    return data;
   }
 
-  
+  const handleDelete = () => {
+    deletePost()
+      .then(data => console.log(data));
+    navigate(`/posts`)
+  }
+
 
 
   return (

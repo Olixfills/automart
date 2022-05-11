@@ -24,7 +24,7 @@ function App() {
       <header>
         <Header />
       </header>
-      <Container sx={{ marginTop: 2}}>
+      <Container sx={{ marginTop: 2, marginBottom: 2}}>
         <Routes>
           <Route path='/' element={<Auth />} />
           <Route path='/auth' element={<Auth />} />

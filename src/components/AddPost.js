@@ -3,11 +3,12 @@ import { TextField, Button, Typography, MenuItem } from '@mui/material';
 import FileBase from 'react-file-base64'
 import { Box } from '@mui/system';
 import Axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Form = () => {
+  
 const url = 'http://localhost:5000/posts/create';
 
 
@@ -36,7 +37,8 @@ const [postData, setPostData] = useState({
   const handleSubmit = (e) => {
     e.preventDefault()
     sendPosts()
-      clear()
+    clear()
+    
   }
 
   const clear = (e) => {

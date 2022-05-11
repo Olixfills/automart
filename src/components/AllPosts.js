@@ -14,7 +14,7 @@ const AllPosts = () => {
   };
   useEffect(() => {
     sendRequest().then((data) => setPosts(data.posts));
-  }, []);
+  }, [posts]);
   console.log(posts);
 
 

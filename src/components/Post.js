@@ -11,18 +11,30 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import moment from 'moment'
 import { Box, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import Axios from 'axios';
 
 
 export default function Post({post, isUser, id}) {
   const navigate = useNavigate()
    const {image, title, creator, createdAt, year, condition, price, } = post
 
+  const deletePost = async () => {
+    const url = `http://localhost:5000/posts/${id}`;
+
+    const res = await Axios.delete(url)
+      .catch(err => console.log(err.message));
+    const data = res.data;
+    return data;
+  }
+  
 
   const handleMore = (e) => {
     navigate(`/post/${id}`)
   }
-  const handleDelete = (e) => {
-    
+  const handleDelete = () => {
+    deletePost()
+      .then(data => console.log(data));
+    navigate(`/posts`)
   }
   
 
