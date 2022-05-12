@@ -36,7 +36,7 @@ const [postData, setPostData] = useState({
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    sendPosts().then(()=>navigate("/")).then(()=>navigate("/posts"))
+    sendPosts()
     clear()
     
   }

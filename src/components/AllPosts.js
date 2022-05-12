@@ -6,16 +6,17 @@ import Post from './Post';
 
 const AllPosts = () => {
   const [posts, setPosts] = useState();
+
   const sendRequest = async () => {
-    const res = await axios
-      .get("https://automartre.herokuapp.com/posts/")
+    const res = await axios.get("https://automartre.herokuapp.com/posts")
       .catch((err) => console.log(err));
     const data = await res.data;
     return data;
   };
+  
   useEffect(() => {
     sendRequest().then((data) => setPosts(data.posts));
-  }, [posts]);
+  }, []);
   console.log(posts);
 
 
