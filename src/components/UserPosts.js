@@ -10,7 +10,7 @@ const UserPosts = () => {
   const id = localStorage.getItem("userId");
 
   const sendRequest = async () => {
-    const res = await axios.get(`https://automartapp.herokuapp.com/posts/user/${id}`)
+    const res = await axios.get(`https://automartre.herokuapp.com/posts/user/${id}`)
       .catch((err) => console.log(err));
     const data = await res.data;
     return data;

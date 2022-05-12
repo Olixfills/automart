@@ -19,7 +19,7 @@ export default function Post({post, isUser, id}) {
    const {image, title, creator, createdAt, year, condition, price, } = post
 
   const deletePost = async () => {
-    const url = `https://automartapp.herokuapp.com/posts/${id}`;
+    const url = `https://automartre.herokuapp.com/posts/${id}`;
 
     const res = await Axios.delete(url)
       .catch(err => console.log(err.message));

@@ -8,7 +8,7 @@ const AllPosts = () => {
   const [posts, setPosts] = useState();
   const sendRequest = async () => {
     const res = await axios
-      .get("https://automartapp.herokuapp.com/posts/")
+      .get("https://automartre.herokuapp.com/posts/")
       .catch((err) => console.log(err));
     const data = await res.data;
     return data;

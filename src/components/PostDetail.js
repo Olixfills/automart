@@ -40,7 +40,7 @@ const PostDetail = () => {
 
 
   const deletePost = async () => {
-    const url = `https://automartapp.herokuapp.com/posts/${id}`;
+    const url = `https://automartre.herokuapp.com/posts/${id}`;
 
     const res = await axios.delete(url)
       .catch(err => console.log(err.message));
