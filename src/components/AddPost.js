@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
   const navigate = useNavigate()
-const url = 'http://localhost:5000/posts/create';
+const url = 'https://automartapp.herokuapp.com/create';
 
 
 const [postData, setPostData] = useState({

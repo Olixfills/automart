@@ -22,7 +22,7 @@ const Auth = () => {
   };
   const sendRequest = async (type = "login") => {
     const res = await axios
-      .post(`http://localhost:5000/posts/user/${type}`, {
+      .post(`https://automartapp.herokuapp.com/posts/user/${type}`, {
         name: inputs.name,
         email: inputs.email,
         password: inputs.password,
