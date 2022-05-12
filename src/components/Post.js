@@ -50,7 +50,7 @@ export default function Post({post, isUser, id}) {
             <MoreVertIcon /> More
           </IconButton>)
         }
-        title={creator.name}
+        title={creator.substring(0, 10)}
         subheader={`Posted ${moment(createdAt).fromNow()}`}
       />
       <CardMedia

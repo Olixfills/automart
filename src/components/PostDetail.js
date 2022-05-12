@@ -21,7 +21,7 @@ const PostDetail = () => {
   const id = useParams().id
   const navigate = useNavigate()
 
-    const url = `http://localhost:5000/posts/${id}`
+    const url = `https://automartre.herokuapp.com/posts/${id}`
     const fetchPost = async () => {
       const res = await axios.get(url).catch(err => console.log(err.message))
       const data = await res.data
