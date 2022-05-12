@@ -8,7 +8,7 @@ import Post from './components/Post';
 import AddPost from './components/AddPost';
 import Container from '@mui/material/Container';
 import PostDetail from './components/PostDetail';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { authActions } from './store';
 
 
@@ -18,7 +18,6 @@ import { authActions } from './store';
 
 function App() {
   const dispatch = useDispatch()
-const isLoggedIn = useSelector(state => state.isLoggedIn);
 
   useEffect(() => {
     if (localStorage.getItem("userId")) {
