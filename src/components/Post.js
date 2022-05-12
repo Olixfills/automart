@@ -32,11 +32,14 @@ export default function Post({post, isUser, id}) {
     navigate(`/post/${id}`)
   }
   const handleDelete = () => {
-    deletePost()
+    deletePost().then(()=>navigate("/")).then(()=>navigate("/posts"))
       .then(data => console.log(data));
-    navigate(`/posts`)
+    
   }
   
+  if (!post) {
+    return <Typography variant='h2' textAlign='center' >YOU HAVE NO POSTS TO VIEW HERE</Typography>
+  }
 
   return (
     <Card sx={{ maxWidth: 400 }} >

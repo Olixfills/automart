@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Form = () => {
-  
+  const navigate = useNavigate()
 const url = 'http://localhost:5000/posts/create';
 
 
@@ -36,7 +36,7 @@ const [postData, setPostData] = useState({
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    sendPosts()
+    sendPosts().then(()=>navigate("/")).then(()=>navigate("/posts"))
     clear()
     
   }
@@ -67,7 +67,7 @@ const [postData, setPostData] = useState({
           padding={3}
           margin={"auto"}
           marginTop={10}
-          width={"50%"}>
+          width={{xs: '80%', md: '50%'}} >
       <form
         onSubmit={handleSubmit}
         autoComplete='off'

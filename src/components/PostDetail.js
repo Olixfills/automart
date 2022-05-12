@@ -49,11 +49,12 @@ const PostDetail = () => {
   }
 
   const handleDelete = () => {
-    deletePost()
+    deletePost().then(()=>navigate("/")).then(()=>navigate("/myposts"))
       .then(data => console.log(data));
-    navigate(`/posts`)
+    
   }
 
+  
 
 
   return (

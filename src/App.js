@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './components/Header';
 import {Routes, Route} from 'react-router-dom'
 import Auth from './components/Auth';
@@ -8,13 +8,23 @@ import Post from './components/Post';
 import AddPost from './components/AddPost';
 import Container from '@mui/material/Container';
 import PostDetail from './components/PostDetail';
+import { useDispatch, useSelector } from 'react-redux';
+import { authActions } from './store';
+
 
 
 
 
 
 function App() {
+  const dispatch = useDispatch()
+const isLoggedIn = useSelector(state => state.isLoggedIn);
 
+  useEffect(() => {
+    if (localStorage.getItem("userId")) {
+      dispatch(authActions.login())
+    }
+  }, [dispatch])
 
 
 
