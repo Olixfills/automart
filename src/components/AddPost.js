@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
   const navigate = useNavigate()
-const url = 'https://automartre.herokuapp.com/create';
+const url = 'https://automartre.herokuapp.com/posts/create';
 
 
 const [postData, setPostData] = useState({
@@ -36,7 +36,8 @@ const [postData, setPostData] = useState({
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    sendPosts()
+    sendPosts().then((data) => console.log(data))
+      .then(() => navigate("/posts"))
     clear()
     
   }
